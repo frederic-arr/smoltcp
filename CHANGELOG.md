@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-No unreleased changes yet. Please send PRs!
+- wire: Expose the `checksum` module publicly, so downstream crates can compute RFC 1071 Internet checksums over discontiguous buffers. ([#1172](https://github.com/smoltcp-rs/smoltcp/pull/1172))
 
 ## [0.13.1] - 2026-05-01
 

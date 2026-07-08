@@ -178,6 +178,7 @@ pub use self::ieee802154::{
     FrameVersion as Ieee802154FrameVersion, Pan as Ieee802154Pan, Repr as Ieee802154Repr,
 };
 
+pub use self::ip::checksum;
 pub use self::ip::{
     Address as IpAddress, Cidr as IpCidr, Endpoint as IpEndpoint,
     ListenEndpoint as IpListenEndpoint, Protocol as IpProtocol, Repr as IpRepr,

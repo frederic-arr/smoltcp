@@ -283,7 +283,7 @@ impl<'a> Socket<'a> {
     /// Start a query with a raw (wire-format) DNS name.
     /// `b"\x09rust-lang\x03org\x00"`
     ///
-    /// You probably want to use [`start_query`] instead.
+    /// You probably want to use [`start_query`](Self::start_query) instead.
     pub fn start_query_raw(
         &mut self,
         cx: &mut Context,

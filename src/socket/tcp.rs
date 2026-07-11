@@ -40,8 +40,7 @@ impl Display for ListenError {
     }
 }
 
-#[cfg(feature = "std")]
-impl std::error::Error for ListenError {}
+impl core::error::Error for ListenError {}
 
 /// Error returned by [`Socket::connect`]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -60,8 +59,7 @@ impl Display for ConnectError {
     }
 }
 
-#[cfg(feature = "std")]
-impl std::error::Error for ConnectError {}
+impl core::error::Error for ConnectError {}
 
 /// Error returned by [`Socket::send`]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -78,8 +76,7 @@ impl Display for SendError {
     }
 }
 
-#[cfg(feature = "std")]
-impl std::error::Error for SendError {}
+impl core::error::Error for SendError {}
 
 /// Error returned by [`Socket::recv`]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -98,8 +95,7 @@ impl Display for RecvError {
     }
 }
 
-#[cfg(feature = "std")]
-impl std::error::Error for RecvError {}
+impl core::error::Error for RecvError {}
 
 /// A TCP socket ring buffer.
 pub type SocketBuffer<'a> = RingBuffer<'a, u8>;

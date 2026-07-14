@@ -397,6 +397,21 @@ mod test {
     }
 
     #[test]
+    #[cfg(feature = "std")]
+    fn test_instant_conversions_from_std_instant() {
+        let std_now = ::std::time::Instant::now();
+
+        let before = Instant::from(std_now);
+        ::std::thread::sleep(::std::time::Duration::from_millis(5));
+        let after = Instant::from(std_now);
+
+        assert_eq!(
+            before, after,
+            "converting the same std Instant twice should yield the same result"
+        );
+    }
+
+    #[test]
     fn test_duration_ops() {
         // std::ops::Add
         assert_eq!(

@@ -105,8 +105,11 @@ impl Instant {
 #[cfg(feature = "std")]
 impl From<::std::time::Instant> for Instant {
     fn from(other: ::std::time::Instant) -> Instant {
-        let elapsed = other.elapsed();
-        Instant::from_micros((elapsed.as_secs() * 1_000000) as i64 + elapsed.subsec_micros() as i64)
+        static REFERENTIAL: ::std::sync::LazyLock<::std::time::Instant> =
+            ::std::sync::LazyLock::new(::std::time::Instant::now);
+
+        let n = other.saturating_duration_since(*REFERENTIAL);
+        Self::from_micros(n.as_secs() as i64 * 1000000 + n.subsec_micros() as i64)
     }
 }
 
